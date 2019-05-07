@@ -1,0 +1,22 @@
+{
+  "name": "wjfengtools/wjfengtools",
+  "description": "php",
+  "type": "project",
+  "license": "wjfeng",
+  "authors": [
+    {
+      "name": "吴靖丰",
+      "email": "1163377596@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "FileTools\\": "src/FileTools",
+      "GeneralTools\\": "src/GeneralTools"
+    }
+  }
+}
