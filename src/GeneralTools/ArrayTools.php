@@ -4,7 +4,7 @@
 namespace GeneralTools;
 
 
-class ArrayTool
+class ArrayTools
 {
     /**
      * todo 暂时只能返回parent_id从0开始的数据

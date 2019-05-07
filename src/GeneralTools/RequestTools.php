@@ -10,7 +10,7 @@ class RequestTools
      *  判断是否来自微信
      * @return string
      */
-    function isFromWeixin()
+    public static function isFromWeixin()
     {
         return isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ? true : false;
     }
@@ -19,7 +19,7 @@ class RequestTools
      *  判断是否来自Iphone
      * @return string
      */
-    function isIphone()
+    public static function isIphone()
     {
         if (!isset($_SERVER['HTTP_USER_AGENT'])) {
             return false;
@@ -35,7 +35,7 @@ class RequestTools
      * 判断是否来自支付宝
      * @return string
      */
-    function isAlipay()
+    public static function isAlipay()
     {
         return isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'AlipayClient') !== false ? true : false;
     }
@@ -47,7 +47,7 @@ class RequestTools
      * @param $timeout
      * @return mixed
      */
-    function http_post($uri, $data, $timeout = 10)
+    public static function http_post($uri, $data, $timeout = 10)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
@@ -62,7 +62,7 @@ class RequestTools
     }
 
 
-    function http_get($url, $timeout = 10, $header = false)
+    public static function http_get($url, $timeout = 10, $header = false)
     {
         $ch = curl_init($url);
         if ($header) {
@@ -80,7 +80,7 @@ class RequestTools
     }
 
     //设置请求头的请求
-    function headerPost($url, $header, $data, $timeout = 10)
+    public static function headerPost($url, $header, $data, $timeout = 10)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -113,7 +113,7 @@ class RequestTools
     }
 
     //ajax请求获取curl数据
-    function headerPostGoods($url, $header, $cookie, $data, $timeout = 10)
+    public static function headerPostGoods($url, $header, $cookie, $data, $timeout = 10)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -136,7 +136,7 @@ class RequestTools
     }
 
     //post请求携带cookie获取页面
-    function getPageByPost($url, $cookie, $data = [], $timeout = 10)
+    public static function getPageByPost($url, $cookie, $data = [], $timeout = 10)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

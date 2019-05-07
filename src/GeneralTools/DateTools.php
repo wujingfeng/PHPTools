@@ -14,7 +14,7 @@ class DateTools
      * @param  string $alt 已失效
      * @return string
      */
-    function friendlyDate($sTime, $type = 'normal', $alt = 'false')
+    public static function friendlyDate($sTime, $type = 'normal', $alt = 'false')
     {
         if (!$sTime) {
             return '';

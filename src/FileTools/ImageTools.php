@@ -4,7 +4,7 @@
 namespace FileTools;
 
 
-class ImageTool
+class ImageTools
 {
     public static function index()
     {

@@ -6,14 +6,10 @@ namespace General;
 
 class OtherTools
 {
-    public function index()
-    {
-        echo 1;
-    }
     /*
      * 根据ip地址获取省市地址
      */
-    function getAreaByip($ip = '124.124.14.123')
+    public static function getAreaByip($ip = '124.124.14.123')
     {
         if (empty($ip)) {
             return '未知';
