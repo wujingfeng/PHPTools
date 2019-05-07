@@ -1,11 +1,11 @@
 {
-  "name": "wjfengtools/wjfengtools",
+  "name": "PHPTools/PHPTools",
   "description": "php",
   "type": "project",
   "license": "wjfeng",
   "authors": [
     {
-      "name": "吴靖丰",
+      "name": "wujingfeng",
       "email": "1163377596@qq.com"
     }
   ],
