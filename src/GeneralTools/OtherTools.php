@@ -1,7 +1,7 @@
 <?php
 
 
-namespace General;
+namespace GeneralTools;
 
 
 class OtherTools
@@ -19,7 +19,6 @@ class OtherTools
         }
         $url = "http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
 
-//        $result = curlService::get($url, ['ip' => $ip]);
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); // 检查SSL加密算法是否存在
@@ -29,8 +28,7 @@ class OtherTools
         $result = curl_exec($curl);
         curl_close($curl);
 
-
-
+        $result = json_decode($result,true);
         if ($result != false) {
             if ($result['code']) {
                 return '未知';

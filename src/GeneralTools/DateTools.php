@@ -1,7 +1,7 @@
 <?php
 
 
-namespace General;
+namespace GeneralTools;
 
 
 class DateTools
