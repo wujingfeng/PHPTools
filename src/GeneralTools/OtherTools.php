@@ -3,6 +3,7 @@
 
 namespace GeneralTools;
 
+use GeneralTools\RequestTools;
 
 class OtherTools
 {
@@ -39,5 +40,44 @@ class OtherTools
             }
         }
         return '未知';
+    }
+
+    /**
+     * 获取两个坐标点的骑行距离
+     * @param $point1
+     * @param $point2
+     * @param $key
+     * @return float
+     */
+    public static function getCyclingDistance($point1="22,154", $point2="22,88",$key='aa2e60a76c1f3b574114762da8b7645b')
+    {
+        $distance = 0.00;
+        if (empty($point1) || empty($point2)) {
+            return $distance;
+        }
+        if (!strpos($point1, ',') || !strpos($point2, ',')) {
+            return $distance;
+        }
+        $params = [
+            'key' => $key,
+            'origin' => $point1,
+            'destination' => $point2,
+        ];
+        $params = http_build_query($params);
+        $url = "http://restapi.amap.com/v4/direction/bicycling?".$params;
+        print_r($url);
+        $data = RequestTools::http_get($url,10);
+        print_r($data);
+        if (isset($data) && $data['errcode'] == 0) {
+            if (isset($data['data']['paths'][0]['distance']) && $data['data']['paths'][0]['distance'] > 0) {
+                $distance = $data['data']['paths'][0]['distance'] <= 100
+                    ? 0.01 :
+                    round($data['data']['paths'][0]['distance'] / 1000, 2);
+            }
+        }
+        if ($distance <= 0) {
+            $distance = self::getLineDistance($point1, $point2);
+        }
+        return $distance;
     }
 }

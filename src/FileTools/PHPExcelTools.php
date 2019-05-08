@@ -13,10 +13,6 @@ namespace FileTools;
 
 class PHPExcelTools
 {
-    public static function index()
-    {
-        echo 111;
-    }
 
     /*
      * 导出文件 生成excel表格
