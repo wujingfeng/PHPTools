@@ -3,11 +3,20 @@
 
 namespace FileTools;
 
-use PHPExcel;
-use PHPExcel_Writer_Excel5;
+//use PHPExcel;
+//use PHPExcel_Writer_Excel5;
+//require_once "./vendor/phpoffice/phpexcel/Classes/PHPExcel.php";
+//if (!defined('PHPEXCEL_ROOT')) {
+//    define('PHPEXCEL_ROOT', dirname(__FILE__) . '/');
+//    require_once(PHPEXCEL_ROOT . '../vendor/phpoffice/phpexcel/Classes/PHPExcel.php');
+//}
 
 class PHPExcelTools
 {
+    public static function index()
+    {
+        echo 111;
+    }
 
     /*
      * 导出文件 生成excel表格
@@ -18,7 +27,7 @@ class PHPExcelTools
      * @param string $mark 文件默认备注
      * @return mixed
      */
-    public static function export($headers=['shop_name'=>"店铺名称"], $res=[ ["shop_name"=>"笑嘻嘻"] ], $fileName = null, $columns = 24,$mark = '')
+    public static function export($headers, $res, $fileName = null, $columns = 24, $mark = '')
     {
         try {
             // 暂不支持导出超过二十四行的
@@ -52,17 +61,12 @@ class PHPExcelTools
                     }
                     $data[] = $temp;
                 }
-                // 写成 string 类型的单元格,防止 数字 被科学计数法
-                $stringActive = ['order_number', 'contact_tel'];
                 //填充表格信息
                 for ($i = 2; $i <= count($data) + 1; $i++) {
                     $j = 0;
                     foreach ($data[$i - 2] as $key => $value) {
-                        if (in_array($key, $stringActive)) {
-                            $currentSheet->setCellValueExplicit("$letter[$j]$i", $value);
-                        } else {
-                            $currentSheet->setCellValue("$letter[$j]$i", $value);
-                        }
+                        $currentSheet->setCellValue("$letter[$j]$i", $value);
+                        //$currentSheet->setCellValueExplicit("$letter[$j]$i", $value);// 防止 数字 被科学计数法
                         $j++;
                     }
                 }

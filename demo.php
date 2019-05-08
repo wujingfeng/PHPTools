@@ -12,4 +12,12 @@ use GeneralTools\StringTools;
 //$result = StringTools::to_guid_string(6);
 //print_r($result);
 
-PHPExcelTools::export();
+//PHPExcelTools::export();
+PHPExcelTools::index();
+$e = new PHPExcel();
+$c = $e->getActiveSheet();
+//print_r($c);
+
+$a = new PHPExcel_Writer_Excel5($e);
+$b=$a->getDiskCachingDirectory();
+print_r($b);
