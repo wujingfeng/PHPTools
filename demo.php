@@ -3,7 +3,7 @@
 
 require_once "./vendor/autoload.php";
 
-use FileTools\ImageTool;
+use FileTools\ImageTools;
 use FileTools\PHPExcelTools;
 use GeneralTools\StringTools;
 

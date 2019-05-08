@@ -4,6 +4,7 @@
 namespace FileTools;
 
 use PHPExcel;
+use PHPExcel_Writer_Excel5;
 
 class PHPExcelTools
 {
