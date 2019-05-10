@@ -1,5 +1,4 @@
 /vendor/
 /library/
-*
-.png
+*.png
 demo.php
