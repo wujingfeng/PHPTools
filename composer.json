@@ -18,7 +18,8 @@
   "autoload": {
     "psr-4": {
       "FileTools\\": "src/FileTools",
-      "GeneralTools\\": "src/GeneralTools"
+      "GeneralTools\\": "src/GeneralTools",
+      "Others\\": "src/Others"
     }
   }
 }
